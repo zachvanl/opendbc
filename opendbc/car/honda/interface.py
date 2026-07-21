@@ -156,7 +156,8 @@ class CarInterface(CarInterfaceBase):
       ret.wheelSpeedFactor = 1.025
 
     elif candidate in (CAR.HONDA_CRV_6G):
-      ret.steerActuatorDelay = 0.15
+      # Sport-L Hybrid: measured delay; keep hybrid gas lookup from mvl tip
+      ret.steerActuatorDelay = 0.20
       ret.lateralParams.torqueBP, ret.lateralParams.torqueV = [[0, 5100], [0, 5100]]
       CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
       if (ret.flags & HondaFlags.HYBRID):
